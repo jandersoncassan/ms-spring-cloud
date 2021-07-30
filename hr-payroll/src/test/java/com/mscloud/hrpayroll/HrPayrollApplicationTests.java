@@ -1,12 +1,9 @@
 package com.mscloud.hrpayroll;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-
-@SpringBootTest
+//@SpringBootTest
 class HrPayrollApplicationTests {
 
-	@Test
+	//@Test
 	void contextLoads() {
 	}
 

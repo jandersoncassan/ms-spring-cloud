@@ -8,17 +8,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.mscloud.hrworker.dto.WorkerDTO;
-
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 @Entity
 @Table(name = "tb_worker")
 public class Worker implements Serializable{
@@ -56,12 +52,4 @@ public class Worker implements Serializable{
 			return false;
 		return true;
 	}
-	
-	public static Worker converter(WorkerDTO workerDTO) {
-		return Worker.builder()
-				.name(workerDTO.getName())
-				.dailyIncome(workerDTO.getDailyIncome())
-				.build();				
-	}
-
 }
