@@ -11,12 +11,16 @@ import org.springframework.web.client.RestTemplate;
 import com.mscloud.hrpayroll.dto.PaymentDTO;
 import com.mscloud.hrpayroll.entities.Payment;
 import com.mscloud.hrpayroll.entities.Worker;
+import com.mscloud.hrpayroll.feignclients.WorkerFeignClients;
 
 @Service
 public class PaymentService {
 	
 	@Autowired
 	private RestTemplate restTemplate;
+	
+	@Autowired
+	private WorkerFeignClients workerFeignClient;
 	
 	@Value("${host.hr-worker}")
 	private String workerHost;
@@ -37,5 +41,17 @@ public class PaymentService {
 	}
 		
 	
+	public PaymentDTO getPaymentFeign(final Long workerId, final Integer days) {
+		
+		Worker worker = workerFeignClient.findById(workerId).getBody();
+		
+		Payment payment = Payment.builder()
+				.name(worker.getName())
+				.dailyIncoming(worker.getDailyIncome())
+				.days(days)
+				.build();
+		
+		return PaymentDTO.converter(payment);
+	}
 	
 }

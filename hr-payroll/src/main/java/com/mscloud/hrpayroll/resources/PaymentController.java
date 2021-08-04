@@ -21,7 +21,8 @@ public class PaymentController {
 	@GetMapping("/{workerId}/days/{days}")
 	private ResponseEntity<PaymentDTO> getPayment(@PathVariable final Long workerId, 
 												  @PathVariable final Integer days) {
-		PaymentDTO payment = service.getPayment(workerId, days);		
+		//PaymentDTO payment = service.getPayment(workerId, days); //RESTTEMPLATE
+		PaymentDTO payment = service.getPaymentFeign(workerId, days);//FEIGNCLIENT	
 		return ResponseEntity.ok(payment);
 	}
 }
