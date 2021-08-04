@@ -22,7 +22,7 @@ public class PaymentService {
 	@Autowired
 	private WorkerFeignClients workerFeignClient;
 	
-	@Value("${host.hr-worker}")
+	@Value("${hr-worker.host}")
 	private String workerHost;
 
 	public PaymentDTO getPayment(final Long workerId, final Integer days) {

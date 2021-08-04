@@ -7,3 +7,9 @@ spring:
 
 host:
  hr-worker: http://localhost:8001/workers/{id}
+ 
+ 
+hr-worker:
+ host: http://localhost:8001/workers/{id}
+ ribbon:
+  listOfServers: localhost:8001, localhost:8002
