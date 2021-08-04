@@ -5,3 +5,5 @@ spring:
  application:
   name: hr-payroll
 
+host:
+ hr-worker: http://localhost:8001/workers/{id}
