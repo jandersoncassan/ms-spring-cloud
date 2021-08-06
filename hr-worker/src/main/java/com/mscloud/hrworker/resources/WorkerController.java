@@ -33,7 +33,12 @@ public class WorkerController {
 	@GetMapping("/{id}")
 	public ResponseEntity<WorkerDTO> findById(@PathVariable Long id){
 		
-		log.info("PORT: {}", env.getProperty("local.server.port"));
+		/*
+		 * log.info("PORT: {}", env.getProperty("local.server.port"));
+		 * 
+		 * try { Thread.sleep(23000l); } catch (InterruptedException e) { // TODO
+		 * Auto-generated catch block e.printStackTrace(); }
+		 */
 		
 		WorkerDTO obj = service.findById(id);
 		return ResponseEntity.ok(obj);
