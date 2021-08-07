@@ -21,3 +21,10 @@ spring:
     console:
       path: /h2-console
       enabled: true
+      
+      
+management:
+ endpoints:
+  web:
+   exposure:
+    include: '*'
