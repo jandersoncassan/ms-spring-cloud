@@ -8,5 +8,6 @@ spring:
       server:
         git:
           default-label: main
-          uri: https://github.com/jandersoncassan/ms-spring-cloud-configs  
-        
+          uri: https://github.com/jandersoncassan/ms-spring-cloud-configs
+          username: ${GITHUB_USER}
+          password: ${GITHUB_PASS} 
