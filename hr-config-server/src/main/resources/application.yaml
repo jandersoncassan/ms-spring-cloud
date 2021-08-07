@@ -1,0 +1,12 @@
+server:
+  port: 8888
+
+spring:
+ name: hr-config-serber
+ cloud:
+    config:
+      server:
+        git:
+          default-label: main
+          uri: https://github.com/jandersoncassan/ms-spring-cloud-configs  
+        
