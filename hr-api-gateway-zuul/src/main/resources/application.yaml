@@ -20,4 +20,17 @@ zuul:
     payroll:
      service-id: hr-payroll
      path: /hr-payroll/**
+
+## CONTROLE DE TIMEOUT IMPORTANTISSIMO *default é 1s
+hystrix:
+ command:
+  default:
+   execution:
+    isolation:
+     thread:
+      timeoutInMilliseconds: 60000
+      
+ribbon:
+ ConnectionTimeout: 10000
+ ReadTimeout: 20000
      
