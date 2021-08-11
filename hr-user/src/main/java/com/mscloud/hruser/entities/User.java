@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -14,10 +15,14 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.mscloud.hruser.dto.UserDTO;
+
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30,9 +35,9 @@ public class User implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	private String name;
+	@Column(unique = true)
 	private String email;
+	private String name;
 	private String password;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
@@ -40,6 +45,7 @@ public class User implements Serializable{
 				joinColumns = @JoinColumn(name = "user_id"),
 				inverseJoinColumns = @JoinColumn(name = "role_id")
 	)
+	@Builder.Default
 	private Set<Role> roles = new HashSet<>();
 	
 	@Override
@@ -66,5 +72,12 @@ public class User implements Serializable{
 		return result;
 	}
 	
+	public static User converter(UserDTO userDTO) {
+		return User.builder()
+				.email(userDTO.getEmail())
+				.name(userDTO.getName())
+				.password(userDTO.getPassword())
+				.build();
+	}
 	
 }
