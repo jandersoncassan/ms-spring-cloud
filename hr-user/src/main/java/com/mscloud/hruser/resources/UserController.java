@@ -2,8 +2,6 @@ package com.mscloud.hruser.resources;
 
 import java.util.List;
 
-import javax.ws.rs.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,7 +40,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/search")
-	public ResponseEntity<UserDTO> findByEmail(@PathParam("email") final String email){
+	public ResponseEntity<UserDTO> findByEmail(@RequestParam("email") final String email){
 		log.info("GET findByEmail : {}", email);
 		UserDTO user = userService.findByEmail(email);
 		return ResponseEntity.ok(user);

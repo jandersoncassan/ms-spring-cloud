@@ -23,6 +23,9 @@ zuul:
     user:
      service-id: hr-user
      path: /hr-user/**
+    oauth:
+     service-id: hr-oauth
+     path: /hr-oauth/**
 
 ## CONTROLE DE TIMEOUT IMPORTANTISSIMO *default é 1s
 hystrix:
