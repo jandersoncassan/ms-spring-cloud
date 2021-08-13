@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mscloud.oauth.dto.UserDTO;
+import com.mscloud.oauth.entities.User;
 import com.mscloud.oauth.services.OauthUserService;
 
 @RestController
@@ -19,8 +19,8 @@ public class OauthUserController {
 	private OauthUserService userService;
 	
 	@GetMapping("/search")
-	public ResponseEntity<UserDTO> findByEmail(@PathParam("email") final String email){
-		 UserDTO user = userService.findByEmail(email);
+	public ResponseEntity<User> findByEmail(@PathParam("email") final String email){
+		 User user = userService.findByEmail(email);
 		 return ResponseEntity.ok(user);
 	}
 

@@ -6,13 +6,13 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.mscloud.oauth.dto.UserDTO;
+import com.mscloud.oauth.entities.User;
 
 @Component
 @FeignClient(name = "hr-user", path = "/users")
 public interface UserFeignCient {
 
 	@GetMapping("/search")
-	ResponseEntity<UserDTO> findByEmail(@RequestParam("email") final String email);
+	ResponseEntity<User> findByEmail(@RequestParam("email") final String email);
 
 }

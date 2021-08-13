@@ -26,6 +26,7 @@ zuul:
     oauth:
      service-id: hr-oauth
      path: /hr-oauth/**
+     sensitive-headers: Cookie, Set-Cookie
 
 ## CONTROLE DE TIMEOUT IMPORTANTISSIMO *default é 1s
 hystrix:
