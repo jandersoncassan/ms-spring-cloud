@@ -1,10 +1,9 @@
 spring:
  application:
-  name: hr-worker
+  name: hr-api-gateway-zuul
  cloud:
   config:
    uri: http://localhost:8888
-
    
 management:
  endpoints:
